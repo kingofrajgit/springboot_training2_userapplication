@@ -6,47 +6,60 @@ public class UserDto {
 	
 	private int id;
 	
-	private String userEmail;
+	private String userEmailId;
 	
 	private String password;
 	
-	private UserDto() {
+
+
+	public UserDto() {
 	}
-	
-	private UserDto(int id, String userEmail, String password) {
-		this.id = id;
-		this.userEmail = userEmail;
-		this.password=password;
-	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getUserEmail() {
-		return userEmail;
+
+	public String getUserEmailId() {
+		return userEmailId;
 	}
 
-	public void setUserEmail(String useEmail) {
-		this.userEmail = useEmail;
+
+	public void setUserEmailId(String userEmailId) {
+		this.userEmailId = userEmailId;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+
+	public UserDto(int id, String userEmailId, String password) {
+		super();
+		this.id = id;
+		this.userEmailId = userEmailId;
+		this.password = password;
+	}
+
+
 	@Override
 	public String toString() {
-		return "UserDto [id=" + id + ", userEmail=" + userEmail + ", password=" + password + "]";
+		return "UserDto [id=" + id + ", userEmailId=" + userEmailId + ", password=" + password + "]";
 	}
+	
+	
 	
 	
 }

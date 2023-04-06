@@ -4,26 +4,19 @@ import com.tarining2_userApplocation.dto.UserDto;
 
 public class UserValidator {
 
-	public static String registerDataValidation(UserDto dto) {
+	public static void registerDataValidation(UserDto dto) throws Exception {
 		
-		String userMail = dto.getUserEmail();
+		String userMail = dto.getUserEmailId();
 		String password = dto.getPassword();
-		String result = "success";
-		
-		if(userMail == null || userMail.isEmpty() || userMail.isBlank()){
-			result= " 1. please enter the valide mailid";
-		}
-//		raj@gmail.com
-		else if(! userMail.contains("@gmail.com")) {
-			result= "2. please enter the valide mailid";
+		if(userMail == null || userMail.isEmpty() || userMail.isBlank() ||! userMail.contains("@gmail.com") ){
+			throw new Exception( " 1. please enter the valide mailid");
 		}
 		if (password == null || password.isBlank() || password.isEmpty()) {
-			result= "passwor Should be not null";
+			throw new Exception("passwor Should be not null");
 		}
 		else if (password.length() < 8) {
-			result= "password must be 8 characters";
+			throw new Exception("password must be 8 characters");
 		}
-		return result;
 	}
 
 }
